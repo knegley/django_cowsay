@@ -8,19 +8,13 @@ import subprocess
 def home_view(request):
     initial_greeting = subprocess.run(["cowsay", "hello"], capture_output=True)
     greeting = (initial_greeting.stdout.decode())
-    # print(type(test2.stdout))
-    # print(test2.stdout.decode())
 
     form = result()
     if request.method == "POST":
         form = result(request.POST)
-        print(form)
-        print(request)
-        print(request.POST)
+
         if form.is_valid():
             data = form.cleaned_data
-            print(data)
-            print(data.get("input_text"))
 
             Results.objects.create(input_text=data.get("input_text"))
 
