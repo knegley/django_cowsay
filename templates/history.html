@@ -1,0 +1,6 @@
+<a href="{% url 'home' %}">Home</a>
+
+<h1>History</h1>
+{% for result in results %}
+<h6>{{result}}</h6>
+{% endfor %}
